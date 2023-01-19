@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "99e0efec-15dc-40d0-8e01-a0f1c93cba42",
+		"name": "to-do-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create New User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Due\",\n    \"username\": \"john_due_1997\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Todo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "john_due_1997",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Nova tarefa de john due\",\n    \"deadline\": \"2023-02-18\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/todos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List todos of user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "john_due_1997",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/todos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Todo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "username",
+						"value": "john_due_1997",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Tarefa  alterada de john due\",\n    \"deadline\": \"2023-03-25\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/todos/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "016aab0f-b22e-4cc0-925c-a1ea12c1137d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Todo Status",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "username",
+						"value": "john_due_1997",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/todos/:id/done",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todos",
+						":id",
+						"done"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "b3d52a03-f4c3-4766-85c9-43cfc14c36f1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Todo Status Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "username",
+						"value": "john_due_1997",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/todos/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "83a53f41-9930-4640-8aee-927c5b88181f"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3333"
+		}
+	]
+}
